@@ -1,0 +1,23 @@
+common:   &COMMON
+  adapter:  postgresql
+  host:     localhost
+  encoding: utf8
+  pool:     5
+
+production:
+  <<: *COMMON
+  database: share_do_development
+  username: develop
+  password: develop
+
+development:
+  <<: *COMMON
+  database: share_do_development
+  username: develop
+  password: develop
+
+test:
+  <<: *COMMON
+  database: share_do_test
+  username: test
+  password: test
