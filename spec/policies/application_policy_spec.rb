@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ApplicationPolicy do
+RSpec.describe ApplicationPolicy do
   let(:policy) { ApplicationPolicy.new user, record }
   let(:user) { FactoryGirl.build :user }
   let(:record) { User.new }

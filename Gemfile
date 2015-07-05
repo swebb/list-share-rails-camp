@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'rails', '4.2.1'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'active_model_serializers'
 gem 'devise'
@@ -19,12 +17,10 @@ gem 'pundit'
 gem 'responders'
 gem 'draper'
 gem 'page_title_helper'
-
-# Presentation
 gem 'simple_form'
-gem 'bootstrap-sass', '>= 3.0.0.0'
+gem 'bootstrap-sass'
 gem 'haml-rails'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'compass-rails'
 
 group :development do
@@ -52,7 +48,7 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
   gem 'rspec_junit_formatter'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false

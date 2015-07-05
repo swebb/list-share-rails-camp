@@ -3,35 +3,37 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject(:user) { User.new }
 
-  it { should validate_presence_of :name }
-  it { should validate_presence_of :email }
-  it { should validate_presence_of :initials }
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_presence_of(:initials) }
 
-  it "should ensure initials are present on save" do
+  describe "#initialise_initials" do
     subject { user.initials }
 
     context "initials are present" do
-      let(:initials) { Faker::Lorem.word }
+      let(:initials) { FFaker::Lorem.word }
 
       before do
         user.initials = initials
-        user.save
+        user.valid?
       end
 
-      its(:initials) { should eq initials }
+      it { is_expected.to eq initials }
     end
 
     context "initals are nil" do
       context "name is present" do
-        before { user.name = Fakre::Lorem.name }
-        let(:initials) { "Some initials" }
+        before do
+          user.name = "John Doe"
+          user.valid?
+        end
 
-        it { should eq initials }
+        it { is_expected.to eq "JD" }
       end
 
       context "name is nil" do
 
-        it { should eq nil }
+        it { is_expected.to eq nil }
       end
     end
   end

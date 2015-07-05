@@ -4,13 +4,13 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :initials, presence: true
 
-  before_save :initialise_initials
+  before_validation :initialise_initials
 
 private
 
   def initialise_initials
-    if initials.blank? && name.present?
-      initials = name.split.map(&:first).join
+    if self.initials.blank? && name.present?
+      self.initials = name.split.map(&:first).join
     end
   end
 end
